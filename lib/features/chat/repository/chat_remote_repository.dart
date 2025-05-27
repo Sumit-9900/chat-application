@@ -21,7 +21,6 @@ abstract interface class ChatRemoteRepository {
   void leaveSocket(String groupId);
   Stream<ChatMessage> get messageStream;
 
-  // 👇 Public accessors
   String get authToken;
   String get groupId;
 }

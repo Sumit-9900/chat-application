@@ -14,8 +14,6 @@ class GroupTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final groupData = group.group;
 
-    // if (groupData == null) return const SizedBox();
-
     final imageUrl = groupData.file?.localFilePath;
     final message = groupData.latestMessage?.content ?? '';
     final groupId = groupData.id;

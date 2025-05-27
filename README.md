@@ -1,16 +1,59 @@
-# chat_app
+# 🗨️ Flutter Chat App
 
-A new Flutter project.
+A real-time group chat application built with **Flutter**, **Bloc architecture**, **Socket.IO**, and **REST APIs**. This app allows users to join chat groups, send/receive messages in real-time, and manage session authentication with token handling.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📦 Features
 
-A few resources to get you started if this is your first Flutter project:
+- ✅ Group-based chat functionality
+- 🧠 Bloc for clean state management
+- 🔌 Real-time messaging using Socket.IO
+- 🔐 Token-based authentication (with expiration handling)
+- 📡 REST API integration for sending messages & fetching groups
+- 📥 Auto stream listener for incoming messages
+- 📴 Socket disconnection & cleanup on leave
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📲 Download APK
+
+You can try the latest build of the app using the link below:
+
+👉 [Download APK](https://drive.google.com/file/d/1Tfd4hG3ohiEe1rg4PJk8m5JujsD9byXc/view?usp=sharing)
+
+---
+
+## 🔧 Getting Started
+
+### Prerequisites
+
+- Flutter SDK
+- Backend server with:
+  - REST API endpoints for message/group handling
+  - Socket.IO support for real-time messaging
+
+### Setup
+
+1. **Clone the repo**
+
+```bash
+git clone https://github.com/Sumit-9900/chat-application.git
+cd chat-application
+```
+
+2. **Install dependencies**
+
+```bash
+flutter pub get
+```
+
+3. **Run the app**
+
+```bash
+flutter run
+```
+
+## ✅ Conclusion
+
+This Flutter Chat App demonstrates how to effectively combine Bloc architecture, Socket.IO, and REST APIs to build a real-time messaging experience with robust state and session management. With clean code structure and extensibility in mind, it's a solid foundation for more advanced chat features.

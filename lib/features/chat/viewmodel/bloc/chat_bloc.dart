@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:chat_app/features/chat/models/chat_model.dart';
 import 'package:chat_app/features/chat/repository/chat_remote_repository.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,8 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   final ChatRemoteRepository _chatRemoteRepository;
   final List<ChatMessage> _messages = [];
 
+  StreamSubscription<ChatMessage>? _messageSubscription;
+
   ChatBloc({required ChatRemoteRepository chatRemoteRepository})
     : _chatRemoteRepository = chatRemoteRepository,
       super(ChatInitial()) {
@@ -20,12 +24,16 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   }
 
   void _onInit(ChatInit event, Emitter<ChatState> emit) {
+    _messageSubscription?.cancel();
+
     _chatRemoteRepository.initSocket(
       token: event.token,
       groupId: event.groupId,
     );
 
-    _chatRemoteRepository.messageStream.listen((message) {
+    _messageSubscription = _chatRemoteRepository.messageStream.listen((
+      message,
+    ) {
       add(ChatReceiveMessage(message));
     });
 
@@ -54,6 +62,13 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   }
 
   void _onDispose(ChatDispose event, Emitter<ChatState> emit) {
+    _messageSubscription?.cancel();
     _chatRemoteRepository.leaveSocket(_chatRemoteRepository.groupId);
+  }
+
+  @override
+  Future<void> close() {
+    _messageSubscription?.cancel();
+    return super.close();
   }
 }
