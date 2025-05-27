@@ -20,7 +20,7 @@ A real-time group chat application built with **Flutter**, **Bloc architecture**
 
 You can try the latest build of the app using the link below:
 
-👉 [Download APK](https://drive.google.com/file/d/1Tfd4hG3ohiEe1rg4PJk8m5JujsD9byXc/view?usp=sharing)
+👉 [Download APK](https://drive.google.com/drive/folders/1vh4zCGxC1x2lTQ6hh8Wn37GtXPoPOjo5?usp=sharing)
 
 ---
 
