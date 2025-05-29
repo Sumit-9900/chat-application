@@ -73,12 +73,15 @@ class ChatRemoteRepositoryImpl implements ChatRemoteRepository {
     _authToken = token;
     _groupId = groupId;
 
-    _socket = IO.io(ApiConstants.socketBaseUrl, {
-      'transports': ['websocket'],
-      'autoConnect': false,
-      'extraHeaders': {'Authorization': 'Bearer $token'},
-      'query': {'_id': groupId},
-    });
+    _socket = IO.io(
+      ApiConstants.socketBaseUrl,
+      IO.OptionBuilder()
+          .setTransports(['websocket'])
+          .disableAutoConnect()
+          .setExtraHeaders({'Authorization': 'Bearer $token'})
+          .setQuery({'_id': groupId})
+          .build(),
+    );
 
     _socket.connect();
 
